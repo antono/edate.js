@@ -1,4 +1,4 @@
-= Date is fun with modern ECMAScript
+# Date is fun with modern ECMAScript
 
 This library extends Number and Date with some useful getters
 and functions:
