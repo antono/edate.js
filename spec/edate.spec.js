@@ -9,7 +9,7 @@ describe("Dato", function() {
 
         describe('number.toDate()', function() {
             it('should convert milliseconds from epoch to Date object', function(){
-                expect((0).toDate()).toEqual();
+                expect((0).toDate()).toEqual(new Date(0));
             });
         });
 
