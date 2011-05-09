@@ -7,42 +7,48 @@ describe("Dato", function() {
             randVal = Math.random(1000);
         });
 
+        describe('number.toDate()', function() {
+            it('should convert milliseconds from epoch to Date object', function(){
+                expect((0).toDate()).toEqual();
+            });
+        });
+
         describe('number.seconds', function() {
-            it('should convert seconds to miliseconds', function(){
+            it('should convert seconds to milliseconds', function(){
                 expect(randVal.second).toEqual(randVal * 1000);
                 expect(randVal.seconds).toEqual(randVal * 1000);
             });
         });
 
         describe('number.minutes', function() {
-            it('should convert minutes to miliseconds', function(){
+            it('should convert minutes to milliseconds', function(){
                 expect(randVal.minute).toEqual(randVal * (60).seconds);
                 expect(randVal.minutes).toEqual(randVal * (60).seconds);
             });
         });
 
         describe('number.hours', function() {
-            it('should convert hours to miliseconds', function(){
+            it('should convert hours to milliseconds', function(){
                 expect(randVal.hour).toEqual(randVal * (60).minutes);
                 expect(randVal.hours).toEqual(randVal * (60).minutes);
             });
         });
 
         describe('number.days', function() {
-            it('should convert days to miliseconds', function(){
+            it('should convert days to milliseconds', function(){
                 expect(randVal.day).toEqual(randVal * (24).hours);
                 expect(randVal.days).toEqual(randVal * (24).hours);
             });
         });
 
         describe('number.weeks', function() {
-            it('should convert weeks to miliseconds', function(){
+            it('should convert weeks to milliseconds', function(){
                 expect(randVal.week).toEqual(randVal * (7).days);
                 expect(randVal.weeks).toEqual(randVal * (7).days);
             });
         });
 
-        describe('miliseconds.ago', function() {
+        describe('milliseconds.ago', function() {
             it('should return Date', function(){
                 expect(randVal.weeks.ago.constructor).toBe(Date);
             });
@@ -52,7 +58,7 @@ describe("Dato", function() {
             });
         });
 
-        describe('miliseconds.fromNow', function(){
+        describe('milliseconds.fromNow', function(){
             it('should return Date', function(){
                 expect(randVal.weeks.fromNow.constructor).toBe(Date);
             });
@@ -62,7 +68,7 @@ describe("Dato", function() {
             });
         });
 
-        describe('miliseconds.since(date)', function(){
+        describe('milliseconds.since(date)', function(){
             it('should return Date', function(){
                 expect(randVal.minutes.since((2).weeks.ago).constructor).toBe(Date);
             });
@@ -76,14 +82,14 @@ describe("Dato", function() {
                 expect(randVal.days.since(date)).toBeTheSameDate(expectedDate);
                 expect(randVal.days.since(+date)).toBeTheSameDate(expectedDate);
             });
-            describe('miliseconds.after(date)', function(){
+            describe('milliseconds.after(date)', function(){
                 it('should behave as ms.since(date)', function() {
                     expect(Number.prototype.after).toBe(Number.prototype.since);
                 });
             });
         });
 
-        describe('miliseconds.before(date)', function() {
+        describe('milliseconds.before(date)', function() {
             it('should return Date', function(){
                 expect(randVal.weeks.before(Date.now()).constructor).toBe(Date);
             });

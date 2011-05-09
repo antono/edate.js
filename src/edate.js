@@ -25,6 +25,10 @@
         }
     };
 
+    defineProperty(Number.prototype, 'toDate', function() {
+        return new Date(this);
+    });
+
     var secondsGetter = function() { return this * 1000 };
     defineGetter(Number, 'second',  secondsGetter);
     defineGetter(Number, 'seconds', secondsGetter);
