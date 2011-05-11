@@ -12,3 +12,10 @@ and functions:
 
 Read the code for more docs and have fun!
 Bonus points for patches :)
+
+
+## Contributors:
+
+ - Antono Vasiljev
+ - Vasiliy Ermolovich
+ - [and other](http://github.com/antono/edate.js/contributors)...
