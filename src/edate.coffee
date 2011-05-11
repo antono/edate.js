@@ -1,4 +1,4 @@
-defineGetter = (constructor, propName, getter) -> 
+defineGetter = (constructor, propName, getter) ->
   if Object.defineProperty
     Object.defineProperty(constructor::, propName, {
       get: getter
@@ -6,7 +6,7 @@ defineGetter = (constructor, propName, getter) ->
   else
     constructor::.__defineGetter__(propName, getter)
 
-defineProperty = (object, propName, propValue) -> 
+defineProperty = (object, propName, propValue) ->
   if Object.defineProperty
     Object.defineProperty(object, propName, {
       value: propValue
@@ -20,21 +20,21 @@ secondsGetter = -> this * 1000
 defineGetter(Number, 'second',  secondsGetter)
 defineGetter(Number, 'seconds', secondsGetter)
 
-minutesGetter = -> this * 60.seconds 
-defineGetter(Number, 'minute',  minutesGetter);
-defineGetter(Number, 'minutes', minutesGetter);
+minutesGetter = -> this * 60.seconds
+defineGetter(Number, 'minute',  minutesGetter)
+defineGetter(Number, 'minutes', minutesGetter)
 
 hoursGetter = -> this * 60.minutes
-defineGetter(Number, 'hour',  hoursGetter);
-defineGetter(Number, 'hours', hoursGetter);
+defineGetter(Number, 'hour',  hoursGetter)
+defineGetter(Number, 'hours', hoursGetter)
 
 daysGetter = -> this * 24.hours
-defineGetter(Number, 'day',  daysGetter);
-defineGetter(Number, 'days', daysGetter);
+defineGetter(Number, 'day',  daysGetter)
+defineGetter(Number, 'days', daysGetter)
 
 weeksGetter = -> this * 7.days
-defineGetter(Number, 'week',  weeksGetter);
-defineGetter(Number, 'weeks', weeksGetter);
+defineGetter(Number, 'week',  weeksGetter)
+defineGetter(Number, 'weeks', weeksGetter)
 
 # Before/After calculations
 defineGetter(Number, 'ago', -> new Date(Date.now() - this))
@@ -42,8 +42,8 @@ defineGetter(Number, 'ago', -> new Date(Date.now() - this))
 defineGetter(Number, 'fromNow', -> new Date(Date.now() + this))
 
 afterFunction = (date) -> new Date(+date + this)
-defineProperty(Number::, 'after', afterFunction);
-defineProperty(Number::, 'since', afterFunction);
+defineProperty(Number::, 'after', afterFunction)
+defineProperty(Number::, 'since', afterFunction)
 
 defineProperty(Number::, 'before', (date) -> new Date(+date - this))
 
@@ -61,13 +61,13 @@ defineProperty(Date, 'tomorrow', -> 1.day.fromNow)
 # Date boundary functions
 #
 
-numberOrDate2Date = (numberOrDate) -> 
+numberOrDate2Date = (numberOrDate) ->
   switch numberOrDate.constructor
     when Date then numberOrDate
     when Number then new Date(numberOrDate)
     else throw new Error('Argument should be a Number or Date')
       
-atTheBeginningOfHour = -> 
+atTheBeginningOfHour = ->
   date = numberOrDate2Date(this)
   date.setMinutes(0)
   date.setSeconds(0)
