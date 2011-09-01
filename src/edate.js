@@ -27,22 +27,22 @@
   defineGetter(Number, 'second', secondsGetter);
   defineGetter(Number, 'seconds', secondsGetter);
   minutesGetter = function() {
-    return this * (60).seconds;
+    return this * 60..seconds;
   };
   defineGetter(Number, 'minute', minutesGetter);
   defineGetter(Number, 'minutes', minutesGetter);
   hoursGetter = function() {
-    return this * (60).minutes;
+    return this * 60..minutes;
   };
   defineGetter(Number, 'hour', hoursGetter);
   defineGetter(Number, 'hours', hoursGetter);
   daysGetter = function() {
-    return this * (24).hours;
+    return this * 24..hours;
   };
   defineGetter(Number, 'day', daysGetter);
   defineGetter(Number, 'days', daysGetter);
   weeksGetter = function() {
-    return this * (7).days;
+    return this * 7..days;
   };
   defineGetter(Number, 'week', weeksGetter);
   defineGetter(Number, 'weeks', weeksGetter);
@@ -64,10 +64,10 @@
     return new Date(Date.now());
   });
   defineProperty(Date, 'yesterday', function() {
-    return (1).day.ago;
+    return 1..day.ago;
   });
   defineProperty(Date, 'tomorrow', function() {
-    return (1).day.fromNow;
+    return 1..day.fromNow;
   });
   numberOrDate2Date = function(numberOrDate) {
     switch (numberOrDate.constructor) {

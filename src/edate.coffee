@@ -66,14 +66,14 @@ numberOrDate2Date = (numberOrDate) ->
     when Date then numberOrDate
     when Number then new Date(numberOrDate)
     else throw new Error('Argument should be a Number or Date')
-      
+
 atTheBeginningOfHour = ->
   date = numberOrDate2Date(this)
   date.setMinutes(0)
   date.setSeconds(0)
   date.setMilliseconds(0)
   date
-  
+
 defineGetter(Date,   'atTheBeginningOfHour', atTheBeginningOfHour)
 defineGetter(Number, 'atTheBeginningOfHour', atTheBeginningOfHour)
 
@@ -83,7 +83,7 @@ atTheEndOfHour = ->
   date.setSeconds(59)
   date.setMilliseconds(999)
   date
-  
+
 defineGetter(Date,   'atTheEndOfHour', atTheEndOfHour)
 defineGetter(Number, 'atTheEndOfHour', atTheEndOfHour)
 
@@ -94,7 +94,7 @@ atTheBeginningOfDay = ->
   date.setSeconds(0)
   date.setMilliseconds(0)
   date
-  
+
 defineGetter(Date,   'atTheBeginningOfDay', atTheBeginningOfDay)
 defineGetter(Number, 'atTheBeginningOfDay', atTheBeginningOfDay)
 
@@ -105,7 +105,7 @@ atTheEndOfDay = ->
   date.setSeconds(59)
   date.setMilliseconds(999)
   date
-  
+
 defineGetter(Date,   'atTheEndOfDay', atTheEndOfDay)
 defineGetter(Number, 'atTheEndOfDay', atTheEndOfDay)
 
