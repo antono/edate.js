@@ -13,6 +13,12 @@ and functions:
 Read the code for more docs and have fun!
 Bonus points for patches :)
 
+## It extends Date?
+
+Well it is. Something to think about:
+
+- http://perfectionkills.com/extending-built-in-native-objects-evil-or-not/
+- http://www.nczonline.net/blog/2010/03/02/maintainable-javascript-dont-modify-objects-you-down-own/
 
 ## Contributors:
 
