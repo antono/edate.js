@@ -57,6 +57,35 @@ defineProperty(Date, 'yesterday', -> 1.day.ago)
 
 defineProperty(Date, 'tomorrow', -> 1.day.fromNow)
 
+monthsAgo = (num) ->
+  date = this
+  while num 
+    num -= 1
+    month = date.getMonth()
+    if (0 != month)
+      date.setMonth(month - 1)
+    else
+      date.setYear(date.getYear() - 1)
+      date.setMonth(11)
+  date
+
+Date::monthsAgo = monthsAgo
+
+monthsSince = (num) ->
+  date = this
+  while num 
+    num -= 1
+    month = date.getMonth()
+    if (11 != month)
+      date.setMonth(month + 1)
+    else
+      date.setYear(date.getYear() + 1)
+      date.setMonth(0)
+  date
+
+Date::monthsSince = monthsSince
+Date::monthsFromNow = monthsSince
+
 #
 # Date boundary functions
 #
