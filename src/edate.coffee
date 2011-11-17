@@ -57,6 +57,35 @@ defineProperty(Date, 'yesterday', -> 1.day.ago)
 
 defineProperty(Date, 'tomorrow', -> 1.day.fromNow)
 
+monthsAgo = (num) ->
+  date = this
+  while num 
+    num -= 1
+    month = date.getMonth()
+    if (0 != month)
+      date.setMonth(month - 1)
+    else
+      date.setYear(date.getYear() - 1)
+      date.setMonth(11)
+  date
+
+Date::monthsAgo = monthsAgo
+
+monthsSince = (num) ->
+  date = this
+  while num 
+    num -= 1
+    month = date.getMonth()
+    if (11 != month)
+      date.setMonth(month + 1)
+    else
+      date.setYear(date.getYear() + 1)
+      date.setMonth(0)
+  date
+
+Date::monthsSince = monthsSince
+Date::monthsFromNow = monthsSince
+
 #
 # Date boundary functions
 #
@@ -108,6 +137,52 @@ atTheEndOfDay = ->
 
 defineGetter(Date,   'atTheEndOfDay', atTheEndOfDay)
 defineGetter(Number, 'atTheEndOfDay', atTheEndOfDay)
+
+atTheBeginningOfMonth = ->
+  date = numberOrDate2Date(this)
+  date.setDate(1)
+  date.atTheBeginningOfDay
+
+defineGetter(Date,   'atTheBeginningOfMonth', atTheBeginningOfMonth)
+defineGetter(Number, 'atTheBeginningOfMonth', atTheBeginningOfMonth)
+
+# End-of-month has a bit of trickery
+
+isLeapYear = ->
+  date = numberOrDate2Date(this)
+  # no divmod guesswork needed if we let
+  # the date object handle itself :-D
+  feb29 = new Date(date.getFullYear(), 1, 29)
+  if 29 == feb29.getDate()
+    true
+  else
+    false
+
+daysInMonth = {
+    0 : 31 # Jan
+# , 1 : 28 # Feb (requires special attention)
+  , 2 : 31 # March
+  , 3 : 30 # April
+  , 4 : 31 # May
+  , 5 : 30 # June
+  , 6 : 31 # July
+  , 7 : 31 # August
+  , 8 : 30 # September
+  , 9 : 31 # October
+  , 10: 30 # November
+  , 11: 31 # December
+}
+
+atTheEndOfMonth = ->
+  date = numberOrDate2Date(this)
+  endOfMonth = daysInMonth[date.getMonth()]
+  if !endOfMonth
+    endOfMonth = date.isLeapYear() ? 29 : 28
+  date.setDate(endOfMonth)
+  date.atTheEndOfDay
+
+defineGetter(Date,   'atTheEndOfMonth', atTheEndOfMonth)
+defineGetter(Number, 'atTheEndOfMonth', atTheEndOfMonth)
 
 atTheBeginningOfYear = ->
   new Date(numberOrDate2Date(this).getFullYear(), 0)
