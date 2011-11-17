@@ -13,6 +13,10 @@ and functions:
 Read the code for more docs and have fun!
 Bonus points for patches :)
 
+## TODO
+
+- Date.format() ???
+
 ## Testing
 
     npm install -g jasmine-node
