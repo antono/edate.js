@@ -2,7 +2,7 @@
     "author": "Antono Vasiljev <antono.vasiljev@gmail.com> (http://antono.info)",
     "name": "edate",
     "description": "ECMA Script Date extension",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "homepage": "https://github.com/antono/edate.js",
     "repository": {
         "type": "git",
