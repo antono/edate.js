@@ -29,4 +29,5 @@ Well it is. Something to think about:
 
  - Antono Vasiljev
  - Vasiliy Ermolovich
+ - AJ ONeal
  - [and other](http://github.com/antono/edate.js/contributors)...
