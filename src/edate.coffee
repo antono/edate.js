@@ -59,7 +59,7 @@ defineProperty(Date, 'tomorrow', -> 1.day.fromNow)
 
 monthsAgo = (num) ->
   date = this
-  while num 
+  while num
     num -= 1
     month = date.getMonth()
     if (0 != month)
@@ -73,7 +73,7 @@ Date::monthsAgo = monthsAgo
 
 monthsSince = (num) ->
   date = this
-  while num 
+  while num
     num -= 1
     month = date.getMonth()
     if (11 != month)
@@ -158,20 +158,19 @@ isLeapYear = ->
   else
     false
 
-daysInMonth = {
-    0 : 31 # Jan
-# , 1 : 28 # Feb (requires special attention)
-  , 2 : 31 # March
-  , 3 : 30 # April
-  , 4 : 31 # May
-  , 5 : 30 # June
-  , 6 : 31 # July
-  , 7 : 31 # August
-  , 8 : 30 # September
-  , 9 : 31 # October
-  , 10: 30 # November
-  , 11: 31 # December
-}
+daysInMonth =
+  0 : 31 # Jan
+# 1 : 28 # Feb (requires special attention)
+  2 : 31 # March
+  3 : 30 # April
+  4 : 31 # May
+  5 : 30 # June
+  6 : 31 # July
+  7 : 31 # August
+  8 : 30 # September
+  9 : 31 # October
+  10: 30 # November
+  11: 31 # December
 
 atTheEndOfMonth = ->
   date = numberOrDate2Date(this)
