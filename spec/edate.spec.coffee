@@ -1,4 +1,4 @@
-# if typeof window is 'undefined' then require('../src/edate.js')
+if typeof window is 'undefined' then require('../src/edate.js')
 
 beforeEach ->
   @addMatchers

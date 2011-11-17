@@ -13,6 +13,11 @@ and functions:
 Read the code for more docs and have fun!
 Bonus points for patches :)
 
+## Testing
+
+    npm install -g jasmine-node
+    make spec
+
 ## It extends Date?
 
 Well it is. Something to think about:

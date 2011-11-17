@@ -1,4 +1,6 @@
-(function() {
+
+  if (typeof window === 'undefined') require('../src/edate.js');
+
   beforeEach(function() {
     return this.addMatchers({
       toBeTheSameDate: function(expectedDate) {
@@ -9,6 +11,7 @@
       }
     });
   });
+
   describe("edate", function() {
     describe('Number Extensions', function() {
       var randVal;
@@ -205,4 +208,3 @@
       });
     });
   });
-}).call(this);
