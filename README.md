@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/antono/edate.js.png)](http://travis-ci.org/antono/edate.js)
 # Date is fun with modern ECMAScript
 
 This library extends Number and Date with some useful getters
